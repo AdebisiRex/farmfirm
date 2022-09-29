@@ -1,0 +1,13 @@
+.image{
+    height:60px;
+    width:60px;
+    border-radius: 50%;
+    border: 1px solid brown;
+}
+.smallText{
+    font-size: .7rem;
+}
+
+.testimony:hover{
+    background-color: #adc85b83;
+}

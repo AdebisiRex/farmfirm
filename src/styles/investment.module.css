@@ -1,0 +1,10 @@
+.invshort{
+    background: linear-gradient(180deg, #0000006c,#374249b0, #374249), url("../resources/invshort.jpg");
+    background-size: cover;
+}
+.invlong{
+    background: linear-gradient(180deg, #0000006c,#374249b0, #374249), url("../resources/invlong.jpg");
+    background-size: cover;
+    background-position: center;
+    
+}

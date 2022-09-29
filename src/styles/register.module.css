@@ -1,0 +1,7 @@
+.regTop{
+    background: linear-gradient(180deg, #ffffff, #37424925), url("../resources/darknight.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+
+}

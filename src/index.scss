@@ -1,0 +1,14 @@
+*{
+    margin:0;
+    padding: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,500;1,900&display=swap');
+
+$font-family-sans-serif: 'Roboto', sans-serif;
+$font-weight-light: 100;
+$primary: #74b26b;
+$info: #e4aa82;
+$success: #adc85b;
+$secondary: #374249 ;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
