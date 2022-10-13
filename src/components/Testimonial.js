@@ -24,7 +24,7 @@ const Testimonial = () => {
 
   return (
     <>
-      <div className="bg-light py-5">
+      <div className="bg-light py-5" >
         <div className="position-relative">
           <div className="py-5 px-3">
             <div className="col-7 text-center mx-auto">

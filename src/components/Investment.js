@@ -4,8 +4,8 @@ const Investment = () => {
   return (
     <>
       <div className="mt-5">
-        <div className="bg-light pb-5">
-          <div className="col-12 h-100 col-md-9 mx-auto ">
+        <div className="bg-light px-2  pb-5">
+          <div className="col-12 h-100 col-lg-9 col-md-11 mx-auto ">
             <div className="py-5 px-3">
               <div className="col-7">
                 <h2 className="fw-bold my-3 lh-3 ">

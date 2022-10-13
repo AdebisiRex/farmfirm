@@ -3,4 +3,12 @@
     .collapseBack{
       background-color: #adc85b;
     }
+    .dashBack{
+      background:linear-gradient(rgba(255, 255, 255, 0.5)) ;
+    }
   }
+
+.nav_position{
+  z-index: 1;
+  background: white;
+}

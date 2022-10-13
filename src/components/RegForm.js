@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useStae} from "react";
 import Geo from "./Geo";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useState } from "react";
 import classes from "../styles/regform.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RegForm = () => {
+  let navigate = useNavigate()
+  const [message, setmessage] = useState("")
+  
   const [passwordType, setpasswordType] = useState("password");
   const togglePassword = (e) => {
     e.preventDefault();
@@ -21,7 +26,11 @@ const RegForm = () => {
       lastname: "",
       email: "",
       password: "",
-      rPassword: " ",
+      rPassword: "",
+      farmname: "",
+      address: "",
+      waterSource: "",
+      spatialUnit: "",
     },
     validationSchema: yup.object({
       firstname: yup.string().required("Firstname is required"),
@@ -40,9 +49,28 @@ const RegForm = () => {
       rPassword: yup
         .string()
         .oneOf([yup.ref("password"), null], "Password must match"),
+
+
+      farmname: yup.string().required("Farm Name is required"),
+      address: yup.string().required("Address is required"),
+      spatialUnit: yup.string().required(" This is a required field"),
+      waterSource: yup.string().required("This is a required field"),
     }),
     onSubmit: (values) => {
       console.log(values);
+      let registerEndpoint = "http://localhost:5252/user/register";
+      axios.post(registerEndpoint, values).then((response)=>{
+        if(response.data.status){
+          alert("Farm Account Creation Successful");
+          navigate("/login")
+        }else{
+          setmessage(response.data.nessage )
+        }
+      }).catch((err)=>{
+
+        setmessage("There was an Error, Please Try Again")
+
+      });
     },
   });
   return (
@@ -52,7 +80,8 @@ const RegForm = () => {
           classes.regbackground + " col-12 col-md-9 col-lg-9 mb-5 mx-auto"
         }
       >
-        <div className="p-5 bg-gradient shadow">
+        <div className="p-5 bg-gradient">
+          {message?<div className="alert alert-danger">{message}</div>:<></>}
           <form onSubmit={formik.handleSubmit}>
             <fieldset>
               <legend className="text-primary">User Information</legend>
@@ -217,6 +246,7 @@ const RegForm = () => {
                 )}
               </div>
             </fieldset>
+
             <hr />
 
             <p className="fw-bold ">
@@ -229,22 +259,26 @@ const RegForm = () => {
               <legend className="text-primary">Farm Information</legend>
               <div className="form-floating mb-3">
                 <input
-                  id="farmname"
                   name="farmname"
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   className="form-control"
                   type="text"
-                  placeholder="First name"
+                  placeholder="Farm name"
                 />
-                <label className="form-lable" htmlFor="farmname">
-                  Farm Name
-                </label>
-                <div className="form-text">
-                  This name will be visible to potential investors in future
-                </div>
+                <label className="form-label">Farm Name</label>
+                {formik.errors.farmname && formik.touched.farmname ? (
+                  <div className="form-text text-danger">
+                    {formik.errors.farmname}
+                  </div>
+                ) : (
+                  <div className="form-text">
+                    This name will be visible to potential investors in future
+                  </div>
+                )}
               </div>
               <div className="mb-3">
-                <label className="form-lable" htmlFor="">
+                <label className="form-label" htmlFor="">
                   Address
                 </label>
                 <input
@@ -254,7 +288,7 @@ const RegForm = () => {
                   type="text"
                   placeholder="Address Line 1"
                 />
-                <Geo />
+                {/* <Geo /> */}
               </div>
               <div className="row">
                 <div className="col-12 col-md-6">
@@ -282,14 +316,26 @@ const RegForm = () => {
                       className="form-control"
                       type="number"
                       placeholder="Number"
-                      name=" plotSize "
+                      name="spatialSize"
                       onChange={formik.handleChange}
                     />
-                    <select name="sizeUnit" onChange={formik.handleChange} className="form-select">
+                    <select
+                      name="spatialUnit"
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="form-select"
+                    >
                       <option value="Plots">Plots</option>
                       <option value="Acres">Acres</option>
                       <option value="Hectars ">Hectares</option>
                     </select>
+                    {formik.errors.spatialUnit && formik.touched.spatialUnit ? (
+                      <div className="form-text text-danger">
+                        {formik.errors.spatialUnit}
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>
@@ -299,20 +345,33 @@ const RegForm = () => {
                 </label>
                 <select
                   onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
                   name="waterSource"
                   className="form-select"
                 >
-                  <option value="Well with plumbing System">Well with plumbing System</option>
-                  <option value="Well, Manual Fetching">Well, Manual Fetching</option>
+                  <option value="Well with plumbing System">
+                    Well with plumbing System
+                  </option>
+                  <option value="Well, Manual Fetching">
+                    Well, Manual Fetching
+                  </option>
                   <option value="Borehole System">Borehole System</option>
                   <option value="River">River</option>
                 </select>
+                {formik.errors.waterSource && formik.touched.waterSource ? (
+                  <div className="form-text text-danger">
+                    {formik.errors.waterSource}
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
               <div className="form-check form-switch">
                 <input
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
+                  value={true}
                   name="waterAvailability"
                   onChange={formik.handleChange}
                 />
@@ -323,7 +382,8 @@ const RegForm = () => {
                   className="form-check-input"
                   type="checkbox"
                   role="switch"
-                  name="safeWater"
+                  value={true}
+                  name="waterSecurity"
                   onChange={formik.handleChange}
                 />
                 <label className="form-check-label">
@@ -332,8 +392,9 @@ const RegForm = () => {
               </div>
               <div className="form-check form-switch">
                 <input
-                  name="personalUse"
+                  name="waterPrivacy"
                   className="form-check-input"
+                  value={true}
                   type="checkbox"
                   role="switch"
                   onChange={formik.handleChange}

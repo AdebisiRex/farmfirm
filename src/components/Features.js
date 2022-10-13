@@ -4,8 +4,8 @@ import FeaturesCard from "./FeaturesCard";
 const Features = () => {
   return (
     <>
-      <div className="pt-5 ">
-        <div className="mx-auto text-center mb-5 col-12 col-md-5">
+      <div className="pt-5">
+        <div className="mx-auto px-3 text-center mb-5 col-12 col-md-5 col-lg-7">
           <small className="font-monospace text-secondary m-0">
             In Addition to a regular inventory app you get...
           </small>
@@ -16,9 +16,9 @@ const Features = () => {
             your farm{" "}
           </p>
         </div>
-        <div className="container mb-4">
-          <div className="col-12 col-lg-9 mx-auto">
-            <div className="row g-5">
+        <div className="mb-4">
+          <div className="col-12 col-lg-9 col-md-11 mx-auto">
+            <div className="row g-4 px-3 py-5">
               <FeaturesCard title="Alarm" text="Calender Progammed Alerts to remind you times  feeding and medication schedules for your" edstyle= ""/>
               <FeaturesCard title="Available 24/7" text="The internet is available 24/7, why not your farm records on you palm everywhere you go." edstyle= "bg-primary text-white"/>
               <FeaturesCard title="Monitoring" text="We have an inventory monitoring mechanism for all your purchased food and drugs" edstyle= " "/>

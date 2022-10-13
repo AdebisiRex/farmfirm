@@ -5,3 +5,10 @@
     height: 250px;
 
 }
+.loginTop{
+    background: linear-gradient(180deg, #374249c7, #37424925), url("../resources/login.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 250px;
+
+}

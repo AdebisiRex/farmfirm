@@ -9,7 +9,7 @@ import Testimonial from "../components/Testimonial";
 const Welcome = () => {
   return (
     <>
-      <Navbar edStyle="" />
+      <Navbar/>
       <Header />
       <Features />
       <Investment />

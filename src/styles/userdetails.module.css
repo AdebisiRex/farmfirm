@@ -1,0 +1,32 @@
+.navigation{
+    display: flex;
+    justify-content: space-between;
+}
+.userBackground{
+    background: linear-gradient(45deg, #374249dc, #3742499c), url("../resources/invshort.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.dp{
+    border:2px solid white;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    position: relative;
+   
+    top: 80px;
+    /* left: 25%; */
+    /* transform: translateX(50%); */
+}
+
+.textDisplay{
+    position: relative;
+    top: 90px ;
+
+}
+.smallText{
+   
+    font-size: .7rem;
+    /* font-style: ; */
+}

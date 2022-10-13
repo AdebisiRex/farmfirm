@@ -6,8 +6,14 @@ import classes from "../styles/navbar.module.css";
 const FarmSideNav = () => {
   return (
     <>
-      <div style={{width:"70px"}} className="col-1 d-none d-md-block vh-100 sticky-top py-4 shadow-sm">
-        <nav className="navbar position-relative navbar-expand-md d-flex flex-column justify-content-center">
+      <div
+        style={{ width: "70px" }}
+        className={
+          classes.nav_position +
+          " d-none d-md-block vh-100 sticky-top py-4 shadow-sm"
+        }
+      >
+        <div className=" d-flex flex-column justify-content-center">
           <div className="d-block m-auto ">
             <Link className="navbar-brand" to="/">
               <img src={justLogo} height={60} alt="" />
@@ -35,7 +41,7 @@ const FarmSideNav = () => {
           >
             <div className="text-center  mb-3 p-3">
               <Link className="nav-link text-primary fw-bold" to="#">
-                <i className="fa fa-dashboard" aria-hidden="true"></i>
+                <i class="fa fa-dashboard" aria-hidden="true"></i> 
               </Link>
             </div>
             <div className="text-center  mb-3 p-3">
@@ -59,7 +65,7 @@ const FarmSideNav = () => {
               </Link>
             </div>
           </div>
-        </nav>
+        </div>
       </div>
     </>
   );

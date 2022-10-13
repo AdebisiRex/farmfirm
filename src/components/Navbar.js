@@ -5,7 +5,7 @@ import classes from "../styles/navbar.module.css"
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar position-absolute navbar-expand-lg p-0 w-100">
+      <nav className="navbar position-absolute navbar-expand-md px-1 p-0 w-100">
         <div className="container-fluid p-0 position-relative ">
           <Link className="navbar-brand mx-md-3 " to="/">
             <img src={logo} height={60} alt="" />
