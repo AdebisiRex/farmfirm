@@ -1,8 +1,9 @@
 import React from "react";
 import classes from "../styles/dailystat.module.css";
 import tap from "../resources/tap.png";
+import WaterSource from "./WaterSource";
 
-const FarmViewTop = () => {
+const FarmViewTop = ({obj}) => {
   return (
     <>
       
@@ -11,13 +12,14 @@ const FarmViewTop = () => {
             <div className="row">
               <div className="col-7">
                 <h2 className="text-dark m-0 display-6 fw-bold">
-                  Farm Overview
+                  {obj.farmname}
                 </h2>
                 <small className="text-secondary fw-light">
                   Let's check your status
                 </small>
               </div>
               <div className="col-5">
+                <WaterSource waterSource={obj.waterSource}/>
                 <img src={tap} width={50} />
               </div>
             </div>

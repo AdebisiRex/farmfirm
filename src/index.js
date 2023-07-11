@@ -1,20 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import { BrowserRouter } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import { BrowserRouter } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 // import "../node_modules/bootstrap/dist/css/bootstrap.css"
-import "../node_modules/bootstrap/dist/js/bootstrap.js"
+import "../node_modules/bootstrap/dist/js/bootstrap.js";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </BrowserRouter>
 );
 

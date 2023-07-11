@@ -19,7 +19,7 @@ function App() {
         <Route path="/farm-dashboard" element={<FarmDashboard/>} />
         <Route path="/preview" element={<AnimalPreview/>} />
         <Route path="/addanimal" element={<AddAnimal/>} />
-        <Route path="/login" element={<LoginPage/>} />
+        <Route path="/signin" element={<LoginPage/>} />
         
       </Routes>
     </>

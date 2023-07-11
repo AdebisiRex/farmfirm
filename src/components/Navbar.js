@@ -56,12 +56,14 @@ const Navbar = () => {
             <div className="me-1">
               <ul className="navbar-nav">
                 <li className="nav-item mx-md-3 ">
-                  <Link className="nav-link fw-bold text-info " to="#">
+                  <Link className="nav-link fw-bold text-info " to="/register">
                     Sign up
                   </Link>
                 </li>
                 <li className="nav-item mx-md-3">
+                  <Link to={"/login"}>
                   <button className="btn btn-outline-light mb-3 px-5 text-white ">Sign in</button>
+                  </Link>
                 </li>
               </ul>
             </div>

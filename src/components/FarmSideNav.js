@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import justLogo from "../resources/logoalone.png";
 import classes from "../styles/navbar.module.css";
+import { FaCreativeCommonsNd } from "react-icons/fa";
 
 const FarmSideNav = () => {
   return (
@@ -14,9 +15,10 @@ const FarmSideNav = () => {
         }
       >
         <div className=" d-flex flex-column justify-content-center">
-          <div className="d-block m-auto ">
+          <div className=" m-auto ">
             <Link className="navbar-brand" to="/">
               <img src={justLogo} height={60} alt="" />
+              <FaCreativeCommonsNd/>
             </Link>
 
             <button
@@ -35,13 +37,13 @@ const FarmSideNav = () => {
           <div
             className={
               classes.collapseBack +
-              " collapse navbar-collapse flex-column  w-100 mt-5 justify-items-center"
+              " collapse navbar-collapse flex-column  border mt-5 justify-items-center"
             }
             id="farmDashNav"
           >
-            <div className="text-center  mb-3 p-3">
+            <div className="text-center mb-3 p-3">
               <Link className="nav-link text-primary fw-bold" to="#">
-                <i class="fa fa-dashboard" aria-hidden="true"></i> 
+              <FaCreativeCommonsNd/>
               </Link>
             </div>
             <div className="text-center  mb-3 p-3">

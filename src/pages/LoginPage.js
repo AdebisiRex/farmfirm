@@ -2,7 +2,8 @@ import React from "react";
 
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import classes from "../styles/regform.module.css";
 import classics from "../styles/register.module.css";
 import Navbar from "../components/Navbar";
@@ -39,7 +40,8 @@ const LoginPage = () => {
         localStorage.sessionToken = response.data.sessionToken;
         localStorage.sessionID = response.data.id
         setmessage(response.data.message);
-        navigate("/farm-daashboard")
+        alert("You have successfully Signed in")
+        navigate("/farm-dashboard");
         
        }else{
         setmessage(response.data.message)
@@ -51,7 +53,8 @@ const LoginPage = () => {
   });
   
   return (
-    <>
+    
+    <> 
       <Navbar />
 
       <div className={classics.loginTop + " text-center row"}>
@@ -72,9 +75,9 @@ const LoginPage = () => {
       >
         <div className="p-5 bg-gradient">
           {message ? (
-            <div className="alert alert-danger">{message}</div>
+            <div className="alert border border-4 border-danger text-center alert-danger">{message}</div>
           ) : (
-            <></>
+            ''
           )}
 
           <form onSubmit={formik.handleSubmit}>

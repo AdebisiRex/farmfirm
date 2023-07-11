@@ -6,11 +6,11 @@ import WeekOverview from "./WeekOverview";
 import Weather from "./Weather";
 import FarmViewTop from "./FarmViewTop";
 
-const DailyStat = () => {
+const DailyStat = ({obj}) => {
   return (
     <>
       <div className="col-12 col-lg-9">
-        <FarmViewTop />
+        <FarmViewTop obj={obj} />
         <div className="row">
           <div className="col-12 col-lg-9">
             <DayOverview />
